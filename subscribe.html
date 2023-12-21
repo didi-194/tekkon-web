@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Subscribe</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='index.js'></script>
+
+    <style>
+        label,
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="checkbox"],
+        input[type="button"] {
+            font-size: 1.2em;
+        }
+
+        /* Increase input box size */
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="button"] {
+            width: 100%; 
+            padding: 12px; 
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            border-radius: 10px;
+        }
+
+        input[type="checkbox"]{
+            transform: scale(1.5); 
+            margin-inline-end: 20px;
+        }
+
+        .checkbox-container{
+            display: flex;
+        }
+
+        .square-button-r{
+            width: 150px; 
+            height: 70px;
+            padding: 10px;
+            background-color: #ff0000; 
+            color: #ffffff; 
+            border: none; 
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 15px; 
+            font-size: 1.5em;
+            margin: 5px;
+        }
+
+    </style>
+</head>
+<body id="news-page">
+
+    <div class="navbar-container">
+
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <h1>Tekkon <span class="red-text">7</span></h1>
+            </div>
+    
+            <div class="navbar-list">
+                <ul>
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="fighter.html">Fighters</a></li>
+                    <li><a href="guides.html">Guides</a></li>
+                    <li><a href="subscribe.html"><button>Subscribe</button></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="char-container">
+        <div class="sub-sheet">
+            <form action="" method="get">
+                <h1>SUBSCRIBE</h1>
+        
+                <label for="">Username</label>
+                <br>
+                <input type="text" name="usename" id="username">
+                <p></p>
+        
+                <label for="email">Email</label>
+                <br>
+                <input type="email" name="email" id="email">
+                <p></p>
+        
+                <label for="">Password</label>
+                <br>
+                <input type="password" name="password" id="password">
+                <p></p>
+        
+                <label for="confpassword">Confirm Password</label>
+                <br>
+                <input type="password" name="confpassword" id="confpassword">
+                <p></p>
+        
+                <div class="checkbox-container">
+                    <input type="checkbox" name="agree" id="agree">
+                    <div>
+                        <label for="agree">I agree with all Terms and Conditions</label>
+                    </div>
+                </div>
+                <p></p>
+        
+                <input type="button" value="submit" onclick="validate()" class="square-button-r">
+        
+            </form>
+        </div>
+    </div>
+
+    
+</body>
+</html> 

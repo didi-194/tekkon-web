@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Tekkon 7</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+<script>
+    function setNavbarHeight(){
+        const video = document.getElementById('bgVideo');
+        const navbarContainer = document.querySelector('.navbar-container');
+        navbarContainer.style.height = `${video.offsetHeight}px`;
+    }
+
+    window.addEventListener('DOMContentLoaded', (event) => {
+        setNavbarHeight();
+        window.addEventListener('resize', setNavbarHeight);
+    });
+</script>
+
+</head>
+
+<body>
+
+    <div class="navbar-container">
+        <video  muted autoplay loop id="bgVideo">
+            <source src="assets/BackgroundVideo.mp4" type="video/mp4">
+        </video>
+
+        <div class="text-overlay">
+            <h1>Tekkon <span class="red-text">7</span></h1>
+            <p>Discover the ultimate fighting experience!</p>
+        </div>
+
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <h1>Tekkon <span class="red-text">7</span></h1>
+            </div>
+    
+            <div class="navbar-list">
+                <ul>
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="fighter.html">Fighters</a></li>
+                    <li><a href="guides.html">Guides</a></li>
+                    <li><a href="subscribe.html"><button>Subscribe</button></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <!-- <div class="title">
+        <h1>Season Pass</h1>
+    </div> -->
+
+    <div class="background-container">
+        <div class="background-image">
+        </div>
+        <h1 class="title">Season Pass</h1>
+        <div class="container">
+            <div class="slider-outer">
+                <div class="slider-inner">
+                    <img src="images/Season Pass/1.jpeg" alt="" class="active">
+                    <img src="images/Season Pass/2.jpeg" alt="">
+                    <img src="images/Season Pass/3.jpeg" alt="">
+                    <img src="images/Season Pass/4.jpeg" alt="">
+                    <img src="images/Season Pass/5.jpeg" alt="">
+                    <img src="images/Season Pass/6.jpeg" alt="">
+                    <img src="images/Season Pass/7.jpeg" alt="">
+                </div>
+            </div>
+        </div>
+
+        
+        <img src="images/left-2.png" alt="" class="prev">
+        <img src="images/right-2.png" alt="" class="next">
+
+    </div>
+
+    <div class="background-container">
+        <video  muted autoplay loop id="bgVideoG">
+            <source src="assets/News-bg.mp4" type="video/mp4">
+        </video>
+        <h1 class="title">News</h1>
+        
+        <h1 class="subtitle">Level Up Your Security : Introducting 2FA</h1>
+        <p class="subsubtitle">We're excited to bring you a major update that's all about keeping your gaming experience secure and your accounts safer than ever before.</p>
+        <div class="square-button-container">
+            <a href="news.html"><button class="square-button">Learn More</button></a>
+            <!-- <button class="square-button-g">Read More</button> -->
+        </div>
+        
+
+    </div>
+
+    <div class="background-container">
+        <video  muted autoplay loop id="bgVideoG">
+            <source src="assets/character.mp4" type="video/mp4">
+        </video>
+        <h1 class="title">Fighters</h1>
+        
+        <h1 class="subtitle">Meet Our Fighter</h1>
+        <p class="subsubtitle">Witness their might, embrace their journey.</p>
+        <div class="square-button-container">
+            <a href="fighter.html"><button class="square-button">Learn More</button></a>
+        </div>
+        
+
+    </div>
+    
+    <div class="background-container">
+        <video  muted autoplay loop id="bgVideoG">
+            <source src="assets/Guide.mp4" type="video/mp4">
+        </video>
+        <h1 class="title">Guide</h1>
+        
+        <h1 class="subtitle-r">Mastering Combos : Ultimate Guide</h1>
+        <p class="subsubtitle-r">Dive deep into the mechanics of combos</p>
+        <div class="square-button-container-r">
+            <a href="guides.html"><button class="square-button">Learn More</button></a>
+        </div>
+        
+
+    </div>
+    <script>
+        $(document).ready(function(){
+            function updateBackground(activeImgSrc) {
+                $('.background-image').css('background-image', 'url("' + activeImgSrc + '")');
+            }
+
+            $('.next').click(function(){
+                var currentImg = $('.slider-inner img.active');
+                var nextImg = currentImg.next('img');
+
+                if(nextImg.length){
+                    currentImg.removeClass('active');
+                    nextImg.addClass('active');
+                    updateBackground(nextImg.attr('src'));
+                } else {
+                    currentImg.removeClass('active');
+                    $('.slider-inner img:first-child').addClass('active');
+                    updateBackground($('.slider-inner img:first-child').attr('src'));
+                }
+            });
+            
+            $('.prev').click(function(){
+                var currentImg = $('.slider-inner img.active');
+                var prevImg = currentImg.prev('img');
+
+                if(prevImg.length){
+                    currentImg.removeClass('active');
+                    prevImg.addClass('active');
+                    updateBackground(prevImg.attr('src'));
+                } else {
+                    currentImg.removeClass('active');
+                    $('.slider-inner img:last-child').addClass('active');
+                    updateBackground($('.slider-inner img:last-child').attr('src'));
+                }
+            });
+
+            updateBackground($('.slider-inner img.active').attr('src'));
+        });
+    </script>
+    
+
+</body>
+</html>
